@@ -1,0 +1,98 @@
+/*package whatever //do not write package name here */
+
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+	   // int key = Integer.parseInt(args[1]);
+	    Node root = createTree();
+	   // root.data = 1;
+
+	    int key = 7;
+// 		System.out.println((root, key));
+        postOrder(root);
+	}
+
+	public static void preOrder ( Node root){
+	    if (root == null ){
+	        return ;
+	    }
+	    System.out.println(root.data);
+	    preOrder(root.left);
+	    preOrder(root.right);
+	}
+
+	public static void inOrder ( Node root){
+	    if (root == null ){
+	        return ;
+	    }
+
+	    inOrder(root.left);
+	    System.out.println(root.data);
+	    inOrder(root.right);
+	}
+
+	public static void postOrder ( Node root){
+	    if (root == null ){
+	        return ;
+	    }
+
+	    postOrder(root.left);
+	    postOrder(root.right);
+	    System.out.println(root.data);
+
+	}
+
+	public static boolean findNode( Node root , int key){
+	    if ( root == null){
+	    return false;
+
+	    }
+
+	    System.out.println(root.data);
+	    if (root.data == key){
+	        return true;
+	    }
+	    boolean leftResult = findNode(root.left, key);
+	    boolean rightResult = findNode (root.right, key);
+
+	    if (leftResult  || rightResult){
+	        return true;
+	    }
+	    return false;
+	}
+
+	public static Node createTree (){
+	    Node root = new Node();
+	    root.data = 1;
+	    Node secondNode = new Node();
+	    secondNode.data = 2;
+	    Node thirdNode = new Node();
+	    thirdNode.data = 3;
+	    Node fourthNode= new Node();
+	    fourthNode.data = 4;
+	    Node fifthNode = new Node();
+	    fifthNode.data = 5;
+	    Node sixthNode = new Node();
+	    sixthNode.data = 6;
+
+	    root.left = secondNode;
+	    root.right = thirdNode;
+	    secondNode.left = fourthNode;
+	    secondNode.right = fifthNode;
+	    thirdNode.left = sixthNode;
+	    thirdNode.right = null;
+
+	    return root;
+
+	}
+}
+
+
+
+
+class Node {
+    int data;
+    Node left;
+    Node right;
+}

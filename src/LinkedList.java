@@ -1,5 +1,5 @@
 public class LinkedList {
-    public LinkedListNode head;
+    public static LinkedListNode head;
 
     public static int count(LinkedListNode head) {
         int count = 0;
@@ -12,7 +12,7 @@ public class LinkedList {
 
     }
 
-    public static LinkedListNode toLast(LinkedListNode head, int lastkey) {
+    public static LinkedListNode toLast() {
         LinkedListNode temp = head;
         LinkedListNode temp2 = new LinkedListNode();
         LinkedListNode prev = null;
@@ -26,6 +26,23 @@ public class LinkedList {
         return head;
     }
 
+    public static LinkedListNode fromlast(LinkedListNode head, int n) {
+        int count = 0;
+        LinkedListNode temp = head;
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+
+        }
+
+        temp = head;
+        for (int i = 1; i < count-n+1; i++) {
+            System.out.println(temp.data + " temp data before");
+            temp = temp.next;
+        }
+        System.out.println(temp.data);
+        return temp;
+    }
 
     public static void printlist(LinkedListNode head) {
 
